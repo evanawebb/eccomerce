@@ -9,7 +9,7 @@
             style="max-width: 20rem;"
             class="mb-3 mx-3">
       <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk of the card's content.
+       {{ category.description }}
       </p>
       <b-button href="#" variant="primary">Go to {{ category.title }}</b-button>
     </b-card>
@@ -24,11 +24,19 @@ export default {
     }
   },
   mounted() {
-    this.title = 'Pants'
     this.categories = [
-      {title: 'pants'},
-      {title: 'Shirts'},
-      {title: 'Outerwear'}
+      {
+        title: 'pants',
+        description: 'Some quick example text to build on the card title, pants, and make up the bulk of the card\'s content.'
+      },
+      {
+        title: 'Shirts',
+        description: 'Some quick example text to build on the card title, shirts, and make up the bulk of the card\'s content.'
+      },
+      {
+        title: 'Outerwear',
+        description: 'Some quick example text to build on the card title, outerwear, and make up the bulk of the card\'s content.'
+      }
     ]
   }
 }
