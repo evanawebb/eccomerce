@@ -1811,17 +1811,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    title: '',
-    imgSrc: '',
-    imgAlt: ''
-  },
   data: function data() {
-    return {};
+    return {
+      categories: []
+    };
   },
   mounted: function mounted() {
     this.title = 'Pants';
+    this.categories = [{
+      title: 'pants'
+    }, {
+      title: 'Shirts'
+    }, {
+      title: 'Outerwear'
+    }];
   }
 });
 
@@ -54908,36 +54914,43 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    [
-      _c(
-        "b-card",
-        {
-          staticClass: "mb-3",
-          staticStyle: { "max-width": "20rem" },
-          attrs: {
-            title: _vm.title,
-            "img-src": "https://picsum.photos/600/300/?image=25",
-            "img-alt": "Image",
-            "img-top": "",
-            tag: "article"
-          }
-        },
+    "b-card-group",
+    _vm._l(_vm.categories, function(category, index) {
+      return _c(
+        "div",
+        { key: index },
         [
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "\n      Some quick example text to build on the card title and make up the bulk of the card's content.\n    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("b-button", { attrs: { href: "#", variant: "primary" } }, [
-            _vm._v("Go to pants")
-          ])
+          _c(
+            "b-card",
+            {
+              staticClass: "mb-3 mx-3",
+              staticStyle: { "max-width": "20rem" },
+              attrs: {
+                title: category.title,
+                "img-src": "https://picsum.photos/600/300/?image=25",
+                "img-alt": "Image",
+                "img-top": "",
+                tag: "article"
+              }
+            },
+            [
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "\n        Some quick example text to build on the card title and make up the bulk of the card's content.\n      "
+                )
+              ]),
+              _vm._v(" "),
+              _c("b-button", { attrs: { href: "#", variant: "primary" } }, [
+                _vm._v("Go to " + _vm._s(category.title))
+              ])
+            ],
+            1
+          )
         ],
         1
       )
-    ],
-    1
+    }),
+    0
   )
 }
 var staticRenderFns = []
