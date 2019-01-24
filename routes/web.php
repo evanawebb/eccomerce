@@ -18,5 +18,7 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/product', 'ProductController@index')->name('product');
+    Route::resources([
+        'pants' => 'PantsController',
+    ]);
 });
