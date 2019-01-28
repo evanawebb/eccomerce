@@ -17,6 +17,6 @@ class Inventory extends Model
 
     public function scopeShirts($query)
     {
-        return $query->where('category' , 'Shirts');
+        return $query->where('category', 'Shirts');
     }
 }
