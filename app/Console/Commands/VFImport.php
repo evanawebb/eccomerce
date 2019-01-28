@@ -3,16 +3,16 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\imports\ExcelImport;
+use App\imports\VFImport as SourceImporter;
 
-class ImportExcel extends Command
+class VFImport extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'import:excel
+    protected $signature = 'import:vf
                             {path=/public/RED-122896/RED-122896-metadata.csv : path to excel file}';
 
     /**
@@ -20,7 +20,7 @@ class ImportExcel extends Command
      *
      * @var string
      */
-    protected $description = 'Import excel sheet at given path, specifically for products.';
+    protected $description = 'Import excel sheet at given path, specifically for vfimagewear.';
 
     /**
      * Create a new command instance.
@@ -39,6 +39,6 @@ class ImportExcel extends Command
      */
     public function handle()
     {
-        (new ExcelImport)->import($this->argument('path'));
+        (new SourceImporter)->import($this->argument('path'));
     }
 }

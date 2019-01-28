@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShirtsTable extends Migration
+class CreateInventoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateShirtsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shirts', function (Blueprint $table) {
+        Schema::create('inventories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('brand');
             $table->string('lotNumber');
-            $table->string('imageString');
             $table->string('color');
-            $table->string('gender');
+            $table->string('category');
+            $table->string('subCategory')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('image')->nullable();
             $table->string('notes')->nullable();
             $table->timestamps();
         });
@@ -33,6 +35,6 @@ class CreateShirtsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shirts');
+        Schema::dropIfExists('inventories');
     }
 }
